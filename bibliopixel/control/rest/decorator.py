@@ -14,8 +14,9 @@ def single(method):
         address = urllib.parse.unquote_plus(address)
         try:
             error = NO_PROJECT_ERROR
-            if not self.project:
-                raise ValueError
+            # FIXME: this check prevents REST controls for demos, why?
+            #if not self.project:
+            #    raise ValueError
             error = BAD_ADDRESS_ERROR
             ed = editor.Editor(address, self.project)
 
